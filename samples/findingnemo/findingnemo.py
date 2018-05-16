@@ -63,7 +63,7 @@ class FindingNemoConfig(Config):
 
     # We use a GPU with 12GB memory, which can fit two images.
     # Adjust down if you use a smaller GPU.
-    IMAGES_PER_GPU = 2
+    IMAGES_PER_GPU = 1
 
     # Number of classes (including background)
     NUM_CLASSES = 1 + 3  # Background + Marlin,Dory,Nemo
@@ -131,12 +131,12 @@ class FindingNemoDataset(utils.Dataset):
             print('object_id',object_id)
             
                 
-region_attributes
+
             # load_mask() needs the image size to convert polygons to masks.
             # Unfortunately, VIA doesn't include it in JSON, so we must read
             # the image. This is only managable since the dataset is tiny.
             image_path = os.path.join(dataset_dir, a['filename'])
-            print('image_path'),image_path)
+            print('image_path',image_path)
             image = skimage.io.imread(image_path)
             height, width = image.shape[:2]
 
