@@ -63,10 +63,10 @@ class FindingNemoConfig(Config):
 
     # We use a GPU with 12GB memory, which can fit two images.
     # Adjust down if you use a smaller GPU.
-    IMAGES_PER_GPU = 1
+    IMAGES_PER_GPU = 2
 
     # Number of classes (including background)
-    NUM_CLASSES = 1 + 3  # Background + Marlin,Dory,Nemo
+    NUM_CLASSES = 1 + 1  # Background + Marlin,Dory,Nemo
 
     # Number of training steps per epoch
     STEPS_PER_EPOCH = 100
@@ -87,9 +87,12 @@ class FindingNemoDataset(utils.Dataset):
         subset: Subset to load: train or val
         """
         # Add classes. 
-        self.add_class("Marlin", 1, "Marlin")
-        self.add_class("Nemo", 2, "Nemo")
-        self.add_class("Dory", 3, "Dory")
+        
+        self.add_class("findingnemo", 1, "findingnemo")
+        
+        #self.add_class("Marlin", 1, "Marlin")
+        #self.add_class("Nemo", 2, "Nemo")
+        #self.add_class("Dory", 3, "Dory")
 
         # Train or validation dataset?
         assert subset in ["train", "val"]
