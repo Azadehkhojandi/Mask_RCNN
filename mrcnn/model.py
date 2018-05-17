@@ -2434,6 +2434,11 @@ class MaskRCNN():
         return boxes, class_ids, scores, full_masks
 
     def detect(self, images, verbose=0):
+        
+        print('az')
+        print(self.config)
+        print(type(images))
+        
         """Runs the detection pipeline.
 
         images: List of images, potentially of different sizes.
@@ -2444,6 +2449,9 @@ class MaskRCNN():
         scores: [N] float probability scores for the class IDs
         masks: [H, W, N] instance binary masks
         """
+        
+
+        
         assert self.mode == "inference", "Create model in inference mode."
         assert len(
             images) == self.config.BATCH_SIZE, "len(images) must be equal to BATCH_SIZE"
